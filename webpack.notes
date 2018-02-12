@@ -1,0 +1,30 @@
+webpack src/main.js dist/bundle.js -> compile the existing javascript file main.js into dist/bundle.js
+
+webpack src/main.js dist/bundle.js --watch
+
+I can execute this script "key": "echo Hello" with npm run key
+"watch": "npm run build -- --watch" passs the parameter using -- to delimite the end of the options, npm will pass all the arguments after -- directly to your script
+
+if in a js file you are exporting as example 3 functions  in the import fiel you should use {}
+
+f1 -> export function n1(){} export function n2(){}
+f2->  import { n1, n2} from './f1'
+
+in webpack we can process any kind of file
+
+if we want process a css file webpack needs a loader and this compilet in js
+npm i --save-dev css-loader
+in the webpack.config add: 
+    module: {
+    rules: [{
+      test: /\.css$/,
+      use: 'css-loader'
+    }]
+  }
+
+if you want to apply the styles of the css use style-loader and this take any css in the build and inyected in the page
+npm i --save-dev style-loader 
+use: ['style-loader','css-loader' ]
+
+the 'use' is readed from right to left, first compile the css and after inyected in the html
+
